@@ -3,16 +3,20 @@ import '../App.css'
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import Loader from './Spinner'
 
 const Signup = (props) => {
     const host = process.env.REACT_APP_HOST
     const navigate = useNavigate()
+        const [loader, setloader] = useState(false)
     const [credentials, setCredentials] = useState({name: "", email: "", password: ""})
     const onChange = (e) => {
         setCredentials({...credentials, [e.target.name]: e.target.value})
     }
     const handlesubmit = async (e) => {
         e.preventDefault()
+        setloader(true)
+        props.setProgress(10)
         
         const {name, email, password} = credentials
         const response = await fetch(`${host}/api/auth/createuser`, {
@@ -22,7 +26,10 @@ const Signup = (props) => {
             },
             body: JSON.stringify({name, email, password})
         })
+        props.setProgress(30)
         const json = await response.json()
+        props.setProgress(100)
+        setloader(false)
         console.log(json)
         if (json.success) {
             localStorage.setItem('token', json.authtoken)
@@ -34,6 +41,7 @@ const Signup = (props) => {
     }
     return (
         <div>
+            {loader && <Loader />}
             <div className="account-pages height-100vh">
                 <div className="home-center">
                     <div className="home-desc-center">

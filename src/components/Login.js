@@ -3,16 +3,20 @@ import { useNavigate } from 'react-router-dom'
 import './Myapp.css'
 import '../App.css'
 import { Link } from 'react-router-dom'
+import Loader from './Spinner'
 
 const Login = (props) => {
     const host = process.env.REACT_APP_HOST;
     const navigate = useNavigate();
+    const [loader, setloader] = useState(false)
     const [credentials, setCredentials] = useState({ email: "", password: "" });
     const onChange = (e) => {
         setCredentials({...credentials, [e.target.name]: e.target.value})
     }
     const handlesubmit = async (e) => {
         e.preventDefault()
+        setloader(true)
+        props.setProgress(10)
         
         const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
@@ -21,7 +25,10 @@ const Login = (props) => {
             },
             body: JSON.stringify({email: credentials.email, password: credentials.password})
         })
+        props.setProgress(30)
         const json = await response.json()
+        props.setProgress(100)
+        setloader(false)
         console.log(json)
         if (json.success) {
             localStorage.setItem('token', json.authtoken)
@@ -31,8 +38,10 @@ const Login = (props) => {
             props.showalert("Invalid credentials", "Danger")
         }
     }
+
     return (
         <div>
+            {loader && <Loader />}
             <div className="account-pages height-100vh">
                 <div className="home-center">
                     <div className="home-desc-center">
