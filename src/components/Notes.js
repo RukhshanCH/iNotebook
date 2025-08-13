@@ -35,14 +35,14 @@ const Notes = (props) => {
     }
     return (
         <div className='row m-5'>
-            <Addnote showalert={props.showalert} />
+            <Addnote Theme={props.Theme} showalert={props.showalert} />
             <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
-                    <div className="modal-content mod-card">
+                    <div className={`modal-content ${props.Theme ? 'mod-card2' : 'mod-card'}`}>
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Make Changes</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -75,7 +75,7 @@ const Notes = (props) => {
             </div>
             <div className='grid-view'>
                 {notes.map((note) => {
-                    return <Noteitem key={note._id} note={note} showalert={props.showalert} updateNote={updateNote} />
+                    return <Noteitem key={note._id} note={note} showalert={props.showalert} updateNote={updateNote} Theme={props.Theme} />
                 })}
             </div>
         </div>

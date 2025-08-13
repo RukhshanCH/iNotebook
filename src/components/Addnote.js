@@ -17,7 +17,7 @@ const Addnote = (props) => {
         props.showalert("Added successfully", "Success")
     }
     return (
-        <div className='form-container container'>
+        <div className={`container ${props.Theme ? 'form-container2' : 'form-container'}`}>
             <form className='form'>
                 <div className="form-group">
                     <label htmlFor="title" className="form-label">Title</label>

@@ -41,7 +41,7 @@ const Signup = (props) => {
     }
     return (
         <div>
-            {loader && <Loader />}
+            {loader && <Loader Theme={props.Theme} />}
             <div className="account-pages height-100vh">
                 <div className="home-center">
                     <div className="home-desc-center">
@@ -50,11 +50,11 @@ const Signup = (props) => {
                                 <div className="col-md-8 col-lg-6 col-xl-5">
                                     <div className="text-center">
                                         <a href="index.html" className="text-uppercase">
-                                            <span>iNotebook</span>
+                                            <span className={`${props.Theme ? 'text-black' : 'text-white'}`}>iNotebook</span>
                                         </a>
-                                        <p className="text-white mt-2 mb-4">iNotebook - Your notes secured in the cloud</p>
+                                        <p className={`mt-2 mb-4 ${props.Theme ? 'text-black' : 'text-white'}`}>iNotebook - Your notes secured in the cloud</p>
                                     </div>
-                                    <div className="mod-card">
+                                    <div className={`${props.Theme ? 'mod-card2' : 'mod-card'}`}>
                                         <div className="card-body p-4">
                                             <div className="text-center mb-4">
                                                 <h4 className="text-uppercase mt-0">Register</h4>
@@ -91,7 +91,7 @@ const Signup = (props) => {
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-12 text-center link-resize">
-                                            <p className="text-white">Already have an account? <Link to="/login" className="text-white m-1"><b>Sign in</b></Link></p>
+                                            <p  className={`${props.Theme ? 'text-black' : 'text-white'}`}>Already have an account? <Link to="/login" className={`m-1 ${props.Theme ? 'text-black' : 'text-white'}`}><b>Sign in</b></Link></p>
                                         </div>
                                     </div>
                                 </div>

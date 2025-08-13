@@ -5,7 +5,7 @@ const Home = (props) => {
   const showalert = props.showalert
   return (
     <div className="container">
-      <Notes showalert={showalert} />
+      <Notes showalert={showalert} Theme={props.Theme} />
     </div>
   )
 }

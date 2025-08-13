@@ -1,7 +1,7 @@
-const About = () => {
+const About = (props) => {
   return (
     
-    <div className='container mt-5'><p className='text-light'><h2>📓 iNotebook – MERN Stack Note-Taking App with Authentication & CRUD Features</h2><br />
+    <div className='container mt-5'><p className={`mb-5 pb-5 ${props.Theme ? 'text-black' : 'text-white'}`}><h2>📓 iNotebook – MERN Stack Note-Taking App with Authentication & CRUD Features</h2><br />
       <div className='px-5 lh-base'>
         <div style={{lineHeight: '25px'}}>iNotebook is a secure, full-stack note-taking web app built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It allows users to sign up, log in, and manage personal notes with a clean and responsive interface. All notes are saved in the cloud, enabling easy access from any device with an internet connection.
         </div> <br />

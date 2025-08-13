@@ -8,7 +8,7 @@ const Noteitem = (props) => {
     const { deleteNote } = context;
     return (
         <>
-            <div className="card m-3" style={{border: 'transparent'}}>
+            <div className={`m-3 ${props.Theme ? 'card2' : 'card'}`} style={{border: 'transparent'}}>
                 <div className="card-content">
                     <h5 className="card-title">{note.title}</h5>
                     <p className="card-para">{note.description}</p>
