@@ -17,6 +17,8 @@ const About = (props) => {
 
       📱 Responsive UI built with React and Bootstrap<br /><br />
 
+      🎨 Theme switching (Light/Dark mode) for personalized user experience<br /><br />
+
       🚀 Seamless front-end and back-end integration via RESTful APIs<br /><br />
 
       ⚙️ Clean code structure, modular components, and reusable functions<br /><br />
