@@ -13,6 +13,8 @@ iNotebook is a secure, full-stack note-taking web app built using the MERN stack
 
 📱 Responsive UI built with React and Bootstrap
 
+🎨 Theme switching (Light/Dark mode) for personalized user experience
+
 🚀 Seamless front-end and back-end integration via RESTful APIs
 
 ⚙️ Clean code structure, modular components, and reusable functions
